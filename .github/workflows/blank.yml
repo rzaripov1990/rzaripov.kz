@@ -27,10 +27,7 @@ jobs:
         run: |
           npm install
           npm run build
-      
-      - name: GitHub Push
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: $\{{ secrets.CV_TOKEN }}
-          force: true
-          tags: release
+          git config --global user.name "CI"
+          git config --global user.email "rzaripov1990@gmail.com"
+          git commit -am "new build $GITHUB_RUN_NUMBER"
+          git push origin master
