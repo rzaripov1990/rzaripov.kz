@@ -29,5 +29,6 @@ jobs:
           npm run build
           git config --global user.name "CI"
           git config --global user.email "rzaripov1990@gmail.com"
+          git add .
           git commit -am "new build $GITHUB_RUN_NUMBER"
           git push origin master
