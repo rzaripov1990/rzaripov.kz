@@ -1,14 +1,16 @@
+const { GenerateSW } = require('workbox-webpack-plugin')
+
 module.exports = {
-  // publicPath      : process.env.NODE_ENV === 'production' ? '/' : '/',
-  css             : { loaderOptions: { css: { url: false } } },
-  configureWebpack: (config) => {
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test   : require('path').resolve(__dirname, 'node_modules/leader-line/'),
-        loader : 'skeleton-loader',
-        options: { procedure: (content) => `${content} export default LeaderLine` },
-      },
-    ]
+  pwa: {
+    shortName                      : 'rzaripov.kz',
+    name                           : 'rzaripov.kz',
+    themeColor                     : '#42b983',
+    msTileColor                    : '#42b983',
+    appleMobileWebAppCache         : 'yes',
+    appleMobileWebAppStatusBarStyle: 'default',
+    display                        : 'standalone',
   },
+  // publicPath: process.env.NODE_ENV === "development" ? "/vuejs-pwa/" : "",
+  css             : { loaderOptions: { css: { url: false } } },
+  configureWebpack: { plugins: [new GenerateSW()] },
 }

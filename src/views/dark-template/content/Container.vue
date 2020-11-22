@@ -52,27 +52,27 @@
       </content-section>
 
       <content-section
-              v-if="educations"
-              id="to-timeline"
-              title="Образование"
+        v-if="educations"
+        id="to-timeline"
+        title="Образование"
       >
-          <v-layout
-                  v-for="(education, i) in educations"
-                  :key="i"
-          >
-              <v-flex md4>
-                  {{ education.from }} - {{ education.to }}
-              </v-flex>
-              <v-flex md8>
-                  <strong v-if="education.title">{{ education.title }}</strong>
-                  <div v-if="education.location">
-                      <i>{{ education.location }}</i>
-                  </div>
-                  <div v-if="education.description">
-                      {{ education.description }}
-                  </div>
-              </v-flex>
-          </v-layout>
+        <v-layout
+          v-for="(education, i) in educations"
+          :key="i"
+        >
+          <v-flex md4>
+            {{ education.from }} - {{ education.to }}
+          </v-flex>
+          <v-flex md8>
+            <strong v-if="education.title">{{ education.title }}</strong>
+            <div v-if="education.location">
+              <i>{{ education.location }}</i>
+            </div>
+            <div v-if="education.description">
+              {{ education.description }}
+            </div>
+          </v-flex>
+        </v-layout>
       </content-section>
     </v-card-text>
   </v-card>
